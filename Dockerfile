@@ -2,7 +2,10 @@
 FROM golang:1.15.2-alpine AS builder
 
 WORKDIR /src
-RUN adduser --uid 10001 shioriuser
+RUN adduser \
+    --disabled-password \    
+    --uid 10001 shioriuser
+    
 RUN apk --update add \
 	ca-certificates \
 	musl-dev \
